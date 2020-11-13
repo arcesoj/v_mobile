@@ -43,22 +43,21 @@ class VTextInput extends SimpleViewManager<EditText> {
     @Override
     protected EditText createViewInstance(@NonNull ThemedReactContext reactContext) {
         EditText customEditText = new EditText(reactContext);
-        //customEditText.setFocusable(false);
-        //customEditText.addTextChangedListener(new InputFormatTextWatcher(mCallerContext, customEditText));
+        customEditText.setFocusable(false);
+        customEditText.addTextChangedListener(new InputFormatTextWatcher(mCallerContext, customEditText));
         return customEditText;
     }
 
     @ReactProp(name = "value")
     public void setValue(EditText view, @Nullable String text) {
-        //view.setText(text);
+        view.setText(text);
     }
 
     @ReactProp(name = "placeholder")
     public void setPlaceholder(EditText view, @Nullable String text) {
-        //view.setHint(text);
+        view.setHint(text);
     }
 
-    /*
     @Nullable
     @Override
     public Map getExportedCustomBubblingEventTypeConstants() {
@@ -112,5 +111,4 @@ class VTextInput extends SimpleViewManager<EditText> {
             editText.addTextChangedListener(this);
         }
     }
-     */
 }
