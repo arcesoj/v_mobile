@@ -57,6 +57,7 @@ const App: () => React$Node = () => {
       const updateTag = {
         tag,
         number,
+        updated_at: Date.now(),
         id: tagSelected?.id,
         color: tagSelected?.color,
       };
@@ -65,6 +66,7 @@ const App: () => React$Node = () => {
       const addTag = {
         tag,
         number,
+        updated_at: Date.now(),
         id: Date.now(),
         color: getRandomColor(),
       };

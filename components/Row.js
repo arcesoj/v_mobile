@@ -1,5 +1,11 @@
 import React from 'react';
-import {StyleSheet, Text, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  View,
+  Button,
+  TouchableWithoutFeedback,
+} from 'react-native';
 
 const Row = ({item, onPress, onDelete}) => (
   <TouchableWithoutFeedback key={item.tag} onPress={onPress}>
@@ -9,8 +15,8 @@ const Row = ({item, onPress, onDelete}) => (
         <Text>{`TAG: ${item.tag}`}</Text>
         <Text>{`VALUE: ${item.number}`}</Text>
       </View>
-      <View>
-        <Button title={'Eliminar'} onPress={onDelete} />
+      <View style={styles.deleteContainer}>
+        <Button title={'Eliminar'} color={'white'} onPress={onDelete} />
       </View>
     </View>
   </TouchableWithoutFeedback>
@@ -26,4 +32,5 @@ const styles = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 10,
   },
+  deleteContainer: {marginLeft: 10},
 });
