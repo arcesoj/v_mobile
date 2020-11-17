@@ -7,13 +7,22 @@ import {
   TouchableWithoutFeedback,
 } from 'react-native';
 
+const currencyFormat = (number) => {
+  let formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: 'USD',
+  });
+  const value = parseInt(number) / 100;
+  return formatter.format(value);
+};
+
 const Row = ({item, onPress, onDelete}) => (
   <TouchableWithoutFeedback key={item.tag} onPress={onPress}>
     <View style={[styles.rowContainer, {backgroundColor: item?.color}]}>
       <View>
         <Text>{`ID: ${item.id}`}</Text>
         <Text>{`TAG: ${item.tag}`}</Text>
-        <Text>{`VALUE: ${item.number}`}</Text>
+        <Text>{`VALUE: ${currencyFormat(item.number)}`}</Text>
       </View>
       <View style={styles.deleteContainer}>
         <Button title={'Eliminar'} color={'white'} onPress={onDelete} />

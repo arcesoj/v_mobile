@@ -21,12 +21,11 @@ RCT_CUSTOM_VIEW_PROPERTY(onChange, RCTBubblingEventBlock, UITextField){
 }
 
 RCT_CUSTOM_VIEW_PROPERTY(value, NSString, UITextField){
+  int x = [json intValue];
+  NSNumber *formatedValue = [[NSNumber alloc] initWithDouble:[@(x) doubleValue]/ 100.0f];
   NSNumberFormatter *formatter = [[NSNumberFormatter alloc] init];
   [formatter setNumberStyle:NSNumberFormatterCurrencyStyle];
-  int x = [json intValue];
-  NSNumber *number = [NSNumber numberWithInt: x];
-  NSString *priceString = [formatter stringFromNumber:number];
-  [view setText:priceString];
+  [view setText: [formatter stringFromNumber:formatedValue]];
 }
 
 - (UIView *) view
