@@ -21,7 +21,7 @@ const NumberPad = ({onPress, onDelete}) => (
     <View style={styles.row}>
       <Button title={'  '} />
       <Button title={'0'} onPress={() => onPress(0)} />
-      <Button title={'R'} onPress={() => onDelete()} />
+      <Button title={'E'} onPress={() => onDelete()} />
     </View>
   </View>
 );
